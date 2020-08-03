@@ -24,7 +24,7 @@ body {
 /* Set up grid */
 .wrapper {
     display: grid;
-    grid-template-columns: 300px;
+    grid-template-columns: 400px;
     grid-template-rows: auto;
     grid-template-areas: 
         "logo banner"

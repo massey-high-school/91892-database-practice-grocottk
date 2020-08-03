@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="description" content="games, apps, ">
-    <meta name="GTT" content="Game / App Database">
+    <meta name="Author" content="Kahlil Grocott">
     <meta name="keywords" content="games, apps, ratings">
     
     <title>Game Database</title>
@@ -58,7 +58,7 @@
         </div> <!-- / side bar -->
         
         <div class="box footer">
-            CC GTT 20XX
+            CC Kahlil Grocott 2020
         </div> <!-- / footer -->
                 
         

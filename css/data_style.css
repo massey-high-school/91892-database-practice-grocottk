@@ -109,9 +109,9 @@ h1, h2, h3, h4 {
 
 /* links in page */
 
-a:link{color: #d6d3d7;}
-a:visited{color: #ccc;}
-a:hover{color: #dfcfbc;}
+a:link{color: #eb4c34;}
+a:visited{color: #34eb40;}
+a:hover{color: #eb8334;}
 
 /* side links */
 a.side {

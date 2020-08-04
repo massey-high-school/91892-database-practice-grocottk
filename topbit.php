@@ -20,7 +20,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="description" content="games, apps, ">
-    <meta name="Author" content="Kahlil Grocott">
+    <meta name="author" content="Kahlil Grocott">
     <meta name="keywords" content="games, apps, ratings">
     
     <title>Game Database</title>
@@ -50,33 +50,3 @@
         </div> <!-- / banner -->
                        
             
-        <div class="box main">
-            <h2>Welcome</h2>
-            
-            
-            <p>
-                Put link to original dataset here
-            </p>
-            
-
-            
-        </div> <!-- / main -->
-        
-        <div class="box side">
-           
-           <h2>Search Area</h2>
-           
-           <p>This is where the search area goes
-
-            
-        </div> <!-- / side bar -->
-        
-        <div class="box footer">
-            CC Kahlil Grocott 2020
-        </div> <!-- / footer -->
-                
-        
-    </div> <!-- / wrapper -->
-    
-            
-</body>

@@ -2,7 +2,12 @@
 
     $find_sql = "SELECT *
 FROM `L2_91892_game_practice`
-LIMIT 0 , 30";
+
+JOIN L2_91892_genre_practice ON (L2_91892_game_practice.Genre_ID = L2_91892_genre_practice.Genre_ID)
+
+JOIN L2_91892_developer_practice ON (L2_91892_game_practice.Developer_ID = L2_91892_developer_practice.Developer_ID)
+
+";
     $find_query = mysqli_query($dbconnect, $find_sql);
     $find_rs = mysqli_fetch_assoc($find_query);
     $count = mysqli_num_rows($find_query);
@@ -55,9 +60,15 @@ LIMIT 0 , 30";
                 
                 <br />
                 
-                <?php echo $find_rs['Genre ID'] ?>
+                <b>Genre</b>:
                 
                 <?php echo $find_rs['Genre'] ?>
+                
+                <br />
+                
+                <b>Developer</b>:
+                
+                <?php echo $find_rs['Developer'] ?>
                 
             </div>
             

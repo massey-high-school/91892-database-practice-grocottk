@@ -42,10 +42,26 @@ LIMIT 0 , 30";
             <!-- Results go here -->
             
             <div class="results">
-            
-                You Have Results
+                
+                <span class="sub_heading">
+                                   
+                    <a href="<?php echo $find_rs['URL']; ?>">
+                            
+                        <?php echo $find_rs['Name']; ?> <!-- Shows Name -->
+                        
+                    </a>
+                    
+                </span>
+                
+                <br />
+                
+                <?php echo $find_rs['Genre ID'] ?>
+                
+                <?php echo $find_rs['Genre'] ?>
                 
             </div>
+            
+            <br />
             
             <?php
                     

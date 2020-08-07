@@ -56,21 +56,35 @@ JOIN L2_91892_developer_practice ON (L2_91892_game_practice.Developer_ID = L2_91
                         
                     </a>
                     
-                </span>
+                </span> - <?php echo $find_rs['Subtitle'] ?>
                 
-                <br />
+                <p>
+                    
+                    <br />
+
+                    <b>Genre</b>:
+
+                    <?php echo $find_rs['Genre'] ?>
+
+                    <br />
+
+                    <b>Developer</b>:
+
+                    <?php echo $find_rs['Developer'] ?>
+                    
+                    <br />
+                    
+                    <b>Rating</b>:
+
+                    <?php echo $find_rs['Average User Rating'] ?> (Based on <?php echo $find_rs['User Rating Count'] ?> votes)
+                    
+                </p>
                 
-                <b>Genre</b>:
+                <hr />
                 
-                <?php echo $find_rs['Genre'] ?>
+                <?php echo $find_rs['Description'] ?>
                 
-                <br />
-                
-                <b>Developer</b>:
-                
-                <?php echo $find_rs['Developer'] ?>
-                
-            </div>
+            </div> <!-- Results End -->
             
             <br />
             

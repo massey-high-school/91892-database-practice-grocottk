@@ -48,15 +48,48 @@ JOIN L2_91892_developer_practice ON (L2_91892_game_practice.Developer_ID = L2_91
             
             <div class="results">
                 
-                <span class="sub_heading">
-                                   
-                    <a href="<?php echo $find_rs['URL']; ?>">
-                            
-                        <?php echo $find_rs['Name']; ?> <!-- Shows Name -->
-                        
-                    </a>
+                <!-- Heading and Subtitle -->
+                
+                <div class="flex-container">
                     
-                </span> - <?php echo $find_rs['Subtitle'] ?>
+                    <div> <!-- Title -->
+                
+                        <span class="sub_heading">
+
+                            <a href="<?php echo $find_rs['URL']; ?>">
+
+                                <?php echo $find_rs['Name']; ?> <!-- Shows Name -->                        
+                            </a>
+                    
+                        </span>
+                        
+                    </div> <!-- End of Title -->
+                    
+                    <?php
+                    
+                        if($find_rs['Subtitle'] != "")
+                            
+                        {
+                            
+                        ?>
+                    
+                    <div> <!-- Subtitle -->
+                    
+                        &nbsp; | &nbsp;
+                        
+                        <?php echo $find_rs['Subtitle']; ?> <!-- Shows Subtitle -->
+                    
+                    </div> <!-- End of Subtitle -->
+                    
+                    <?php
+                            
+                        }
+                    
+                    ?>
+                    
+                </div>
+                
+                <!-- End of Heading and Subtitle -->
                 
                 <p>
                     

@@ -111,11 +111,8 @@ JOIN L2_91892_developer_practice ON (L2_91892_game_practice.Developer_ID = L2_91
                 
                 <?php
                 
-                }
+                } // End of find_rs if
                 
-                ?>
-                
-                <?php
                 
                 else {
                 

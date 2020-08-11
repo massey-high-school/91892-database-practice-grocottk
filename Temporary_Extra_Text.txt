@@ -1,0 +1,30 @@
+            </div>
+                
+                <p>
+                    
+                    <br />
+
+                    <b>Genre</b>:
+
+                    <?php echo $find_rs['Genre'] ?>
+
+                    <br />
+
+                    <b>Developer</b>:
+
+                    <?php echo $find_rs['Developer'] ?>
+                    
+                    <br />
+                    
+                    <b>Rating</b>:
+
+                    <?php echo $find_rs['Average User Rating'] ?> (Based on <?php echo $find_rs['User Rating Count'] ?> votes)
+                    
+                </p>
+                
+                <hr />
+                
+                <?php echo $find_rs['Description'] ?>
+            
+            
+                

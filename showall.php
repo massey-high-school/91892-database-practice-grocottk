@@ -65,6 +65,8 @@ JOIN L2_91892_developer_practice ON (L2_91892_game_practice.Developer_ID = L2_91
                         
                     </div> <!-- End of Title -->
                     
+                    <!-- Subtitle -->
+                    
                     <?php
                     
                         if($find_rs['Subtitle'] != "")
@@ -73,13 +75,13 @@ JOIN L2_91892_developer_practice ON (L2_91892_game_practice.Developer_ID = L2_91
                             
                         ?>
                     
-                    <div> <!-- Subtitle -->
+                    <div>
                     
                         &nbsp; | &nbsp;
                         
                         <?php echo $find_rs['Subtitle']; ?> <!-- Shows Subtitle -->
                     
-                    </div> <!-- End of Subtitle -->
+                    </div>
                     
                     <?php
                             
@@ -87,36 +89,52 @@ JOIN L2_91892_developer_practice ON (L2_91892_game_practice.Developer_ID = L2_91
                     
                     ?>
                     
+                    <!-- End of Subtitle -->
+                    
                 </div>
                 
-                <!-- End of Heading and Subtitle -->
+                    <!-- End of  Heading and Subtitle -->
                 
-                <p>
-                    
-                    <br />
-
-                    <b>Genre</b>:
-
-                    <?php echo $find_rs['Genre'] ?>
-
-                    <br />
-
-                    <b>Developer</b>:
-
-                    <?php echo $find_rs['Developer'] ?>
-                    
-                    <br />
-                    
-                    <b>Rating</b>:
-
-                    <?php echo $find_rs['Average User Rating'] ?> (Based on <?php echo $find_rs['User Rating Count'] ?> votes)
-                    
-                </p>
+                <!-- Price -->
                 
-                <hr />
+                <?php
                 
-                <?php echo $find_rs['Description'] ?>
+                if($find_rs['Price'] == 0) {
                 
+                ?>
+                
+                <div>
+                    
+                    <p>Free</p>
+                    
+                </div> <!-- Does not print Price (prints "Free") -->
+                
+                <?php
+                
+                }
+                
+                ?>
+                
+                <?php
+                
+                else {
+                
+                ?>
+                
+                <div>
+                
+                    <b>Price:</b> <?php echo $find_rs['Price']; ?>
+                    
+                </div>
+                
+                <?php
+                
+                } // Displays Price if Present
+                
+                ?>
+                
+                <!-- End of Price -->
+
             </div> <!-- Results End -->
             
             <br />

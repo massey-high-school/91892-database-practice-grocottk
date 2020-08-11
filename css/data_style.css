@@ -141,6 +141,8 @@ a.side:hover {color:#8a1737; }
     padding: 20px;
     }
 
+/**** Subtitle Formatting ***/
+
 .flex-container {
     display: flex;
     flex-wrap: nowrap;

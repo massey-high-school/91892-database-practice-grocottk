@@ -105,7 +105,22 @@ JOIN L2_91892_developer_practice ON (L2_91892_game_practice.Developer_ID = L2_91
                 
                 <div>
                     
-                    <p>Free</p>
+                    Free
+                    
+                    <?php 
+                    
+                        if($find_rs['Purchases?'] == 1)
+                            
+                        {
+                            
+                            ?>
+                    
+                            (Contains In-App Purchases)
+                    
+                            <?php
+                            
+                        } // End of In-App Purchases 'if statement'
+                    ?>
                     
                 </div> <!-- Does not print Price (prints "Free") -->
                 
@@ -120,7 +135,7 @@ JOIN L2_91892_developer_practice ON (L2_91892_game_practice.Developer_ID = L2_91
                 
                 <div>
                 
-                    <b>Price:</b> <?php echo $find_rs['Price']; ?>
+                    <b>Price:</b> $<?php echo $find_rs['Price']; ?>
                     
                 </div>
                 

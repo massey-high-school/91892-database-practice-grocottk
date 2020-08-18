@@ -95,6 +95,31 @@ JOIN L2_91892_developer_practice ON (L2_91892_game_practice.Developer_ID = L2_91
                 
                     <!-- End of  Heading and Subtitle -->
                 
+                <!-- Ratings -->
+                
+                <div class="flex-container"> <!-- Ratings 'flex-container' -->
+                
+                <!-- Star Rating 'div' -->
+                    
+                <!-- The Partial Stars Original Source can be found at the following link: https://codepen.io/Bluetidepro/pen/GkpEa -->
+                    
+                    <div class="star-ratings-sprite">
+                        
+                    </div> <!-- End of Star Rating 'div' -->
+                    
+                    <!-- Text Rating 'div' -->
+                    
+                    <div class="actual-rating">
+                        
+                        (<?php echo $find_rs['Average User Rating'] ?> based on <?php echo number_format($find_rs['User Rating Count']) ?> ratings)
+                    
+                    </div> <!-- End of Text Rating 'div' -->
+                
+                
+                </div> <!-- End of Ratings 'flex-container' -->
+                
+                <!-- End of Ratings -->
+                
                 <!-- Price -->
                 
                 <?php

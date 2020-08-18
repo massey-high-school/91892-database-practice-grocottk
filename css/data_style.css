@@ -149,6 +149,7 @@ a.side:hover {color:#8a1737; }
 }
 
 /**** Star Ratings Formatting ****/
+/**** Source for below CSS Code: https://codepen.io/Bluetidepro/pen/GkpEa ****/
 
 .star-ratings-sprite {
   background: url("../images/star-rating-sprite.png") repeat-x;

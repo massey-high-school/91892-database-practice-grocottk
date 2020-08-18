@@ -95,6 +95,8 @@ JOIN L2_91892_developer_practice ON (L2_91892_game_practice.Developer_ID = L2_91
                 
                     <!-- End of  Heading and Subtitle -->
                 
+                <br />
+                
                 <!-- Ratings -->
                 
                 <div class="flex-container"> <!-- Ratings 'flex-container' -->
@@ -104,6 +106,8 @@ JOIN L2_91892_developer_practice ON (L2_91892_game_practice.Developer_ID = L2_91
                 <!-- The Partial Stars Original Source can be found at the following link: https://codepen.io/Bluetidepro/pen/GkpEa -->
                     
                     <div class="star-ratings-sprite">
+                        
+                        <span style="width:<?php echo $find_rs['Average User Rating'] / 5 * 100; ?>%" class="star-ratings-sprite-rating"></span> <!-- Source: https://codepen.io/Bluetidepro/pen/GkpEa -->
                         
                     </div> <!-- End of Star Rating 'div' -->
                     
@@ -119,6 +123,8 @@ JOIN L2_91892_developer_practice ON (L2_91892_game_practice.Developer_ID = L2_91
                 </div> <!-- End of Ratings 'flex-container' -->
                 
                 <!-- End of Ratings -->
+                
+                <br />
                 
                 <!-- Price -->
                 
@@ -171,7 +177,49 @@ JOIN L2_91892_developer_practice ON (L2_91892_game_practice.Developer_ID = L2_91
                 ?>
                 
                 <!-- End of Price -->
+                
+                <p> 
+                
+                <br />
 
+                    <!-- Developer -->
+
+                    <b>Developer</b>:
+
+                    <?php echo $find_rs['Developer'] ?>
+
+                    <!-- End of Developer -->
+
+                    <br/>
+
+                    <!-- Genre -->
+
+                    <b>Genre</b>:
+
+                    <?php echo $find_rs['Genre'] ?>
+
+                    <!-- End of Genre -->
+
+                    <br />
+
+                    <!-- Age Rating -->
+
+                    Suitable for ages <b><?php echo $find_rs['Age Rating'] ?></b> and higher.
+
+                    <!-- End of Age Rating -->
+
+                    <br />
+                
+                </p>
+                
+                <!-- Description -->
+
+                <hr />
+
+                <?php echo $find_rs['Description'] ?>
+
+                <!-- End of Description -->
+                
             </div> <!-- Results End -->
             
             <br />

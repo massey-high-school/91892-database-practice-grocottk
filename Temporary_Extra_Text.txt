@@ -10,9 +10,9 @@
 
                     <br />
 
-                    <b>Developer</b>:
+                    <b>Genre</b>:
 
-                    <?php echo $find_rs['Developer'] ?>
+                    <?php echo $find_rs['Genre'] ?>
                     
                     <br />
                     

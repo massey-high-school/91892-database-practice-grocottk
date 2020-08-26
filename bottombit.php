@@ -16,7 +16,41 @@
 
             </form>
             
-        </div> <!-- / side bar -->
+            <br />
+            <hr />
+            <br />
+            
+            <div class="advanced-frame"> <!-- Advanced Frame -->
+                
+            <h2>Advanced Search</h2>
+
+            <form class="searchform" method="post" action="advanced.php" enctype="multipart/form-data">
+                
+            <input class="adv" type="text" name="app_name" size="40" value="" placeholder="App Name and/or Title..."/>
+                
+            <input class="adv" type="text" name="dev_name" size="40" value="" placeholder="Developer..."/>
+                
+            <input class="submit advanced-button" type="submit" name="advanced" value="Search &nbsp; &#xf002;" />
+
+            <!-- Genre Dropdown -->
+            
+            <select name="genre">
+                
+                <!-- Get Options from Database -->
+                
+                <!-- The below 'php' brackets will eventually be filled with content -->
+                
+                <?php
+                
+                ?>
+                
+            </select>
+            
+            </form>
+                
+            </div> <!-- End of Advanced Frame -->
+            
+        </div> <!-- End of Side Bar -->
         
         <div class="box footer">
             CC Kahlil Grocott 2020

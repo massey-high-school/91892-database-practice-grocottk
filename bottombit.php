@@ -10,6 +10,12 @@
                 
             </form>
             
+            <form class="searchform" method="post" action="free_no_iap.php" enctype="multipart/form-data">
+            
+                <input class="submit free" type="submit" name="free_no_iap" size="1000" value="Search for Free Apps with no In-App Purchases &nbsp; &#xf002;" />
+
+            </form>
+            
         </div> <!-- / side bar -->
         
         <div class="box footer">

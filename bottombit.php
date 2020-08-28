@@ -29,23 +29,43 @@
             <input class="adv" type="text" name="app_name" size="40" value="" placeholder="App Name and/or Title..."/>
                 
             <input class="adv" type="text" name="dev_name" size="40" value="" placeholder="Developer..."/>
-                
-            <input class="submit advanced-button" type="submit" name="advanced" value="Search &nbsp; &#xf002;" />
 
             <!-- Genre Dropdown -->
             
-            <select name="genre">
+            <select class="search adv" name="genre">
                 
-                <!-- Get Options from Database -->
+            <option value="" disabled selected>Genre...</option>
                 
-                <!-- The below 'php' brackets will eventually be filled with content -->
+            <!-- Get Options from Database -->
+
+            <?php
+                
+                $genre_sql="SELECT *
+FROM `L2_91892_genre_practice`
+ORDER BY `L2_91892_genre_practice`.`Genre` ASC";
+                $genre_query=mysqli_query($dbconnect, $genre_sql);
+                $genre_rs=mysqli_fetch_assoc($genre_query);
+                
+                do {
+                    
+                    ?>
+                
+                <option value="<?php echo $genre_rs['Genre']; ?>"><?php echo $genre_rs['Genre']; ?></option>
                 
                 <?php
+                    
+                } // End of Genre 'do' loop
+                
+                while ($genre_rs=mysqli_fetch_assoc($genre_query))
                 
                 ?>
                 
             </select>
+                
+            <!-- Search Submit Button: -->
             
+            <input class="submit advanced-button" type="submit" name="advanced" value="Search &nbsp; &#xf002;" />
+
             </form>
                 
             </div> <!-- End of Advanced Frame -->

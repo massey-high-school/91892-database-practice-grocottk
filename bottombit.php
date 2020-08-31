@@ -62,6 +62,32 @@ ORDER BY `L2_91892_genre_practice`.`Genre` ASC";
                 
             </select>
                 
+            <!-- Cost -->
+            
+            <div class="flex-cpntainer">
+                
+                <div class="adv-txt">
+                    
+                    Cost&nbsp;(less&nbsp;than):
+                
+                </div> <!-- End of Cost Label -->
+                
+                <div>
+                    
+                    <input class="adv" type="text" name="cost" size="40" value="" placeholder="Dollars..."/>
+                
+                </div> <!-- End of Cost Input Box -->
+                
+            </div> <!-- End of Cost ('flexbox') -->
+            
+            <!-- In-App Purchases Checkbox -->
+                
+                
+                
+            <!-- Rating -->
+                
+            <!-- Age -->
+                
             <!-- Search Submit Button: -->
             
             <input class="submit advanced-button" type="submit" name="advanced" value="Search &nbsp; &#xf002;" />

@@ -14,6 +14,8 @@ JOIN L2_91892_developer_practice ON (L2_91892_game_practice.Developer_ID = L2_91
 
 ?>
 
+        <!-- Save this as 'advanced' -->
+
         <div class="box main">
             <h2>All Results from Database</h2>
             

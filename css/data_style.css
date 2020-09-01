@@ -205,6 +205,10 @@ input.search[type=text], select {
     width: 200px;
 }
 
+select {
+    height: 40px;
+}
+
 input {
     height: 40px;
     padding: 10px;

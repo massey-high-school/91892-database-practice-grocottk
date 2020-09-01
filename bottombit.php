@@ -82,12 +82,72 @@ ORDER BY `L2_91892_genre_practice`.`Genre` ASC";
             
             <!-- In-App Purchases Checkbox -->
                 
-                
+                <input class="adv-txt" type="checkbox" name="in_app" value="0">No In-App Purchases
+            
+            <!-- End of In-App Purchases Checkbox -->
                 
             <!-- Rating -->
                 
+            <div class="flex-container">
+                
+                <div class="adv-txt">
+                
+                    Rating:
+                    
+                </div> <!-- End of Rating Label -->
+                <div>
+                
+                    <select class="search adv" name="rate_more_less">
+                        
+                        <option value="" disabled>Choose...</option>
+                        
+                        <option value="at least">At Least</option>
+                        
+                        <option value="at most">At Most</option>
+                        
+                    </select>
+
+                </div> <!-- End of Rating Drop Down [Menu] -->
+                
+                <div>
+                
+                    <input class="adv" type="text" name="rating" size="3" value="" placeholder=""/>
+                
+                </div> <!-- End of Rating Amount -->
+                
+            </div> <!-- End of Rating [Search] ('flexbox') -->
+                
             <!-- Age -->
                 
+            <div class="flex-container">
+                
+                <div class="adv-txt">
+                    
+                    Age:
+                    
+                </div> <!-- End of Rating Label -->
+                <div>
+                
+                    <select class="search adv" name="age_more_less">
+                        
+                        <option value="" disabled>Choose...</option>
+                        
+                        <option value="at least">At Least</option>
+                        
+                        <option value="at most">At Most</option>
+                        
+                    </select>
+
+                </div> <!-- End of Age Drop Down [Menu] -->
+                
+                <div>
+                
+                    <input class="adv" type="text" name="rating" size="3" value="" placeholder=""/>
+                
+                </div> <!-- End of Age Input -->
+            
+            </div> <!-- End of Age [Search] ('flexbox') -->
+            
             <!-- Search Submit Button: -->
             
             <input class="submit advanced-button" type="submit" name="advanced" value="Search &nbsp; &#xf002;" />

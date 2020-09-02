@@ -34,7 +34,7 @@
             
             <select class="search adv" name="genre">
                 
-            <option value="" disabled selected>Genre...</option>
+            <option value="" selected>Genre...</option>
                 
             <!-- Get Options from Database -->
 

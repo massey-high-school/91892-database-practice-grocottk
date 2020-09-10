@@ -197,6 +197,11 @@ a.side:hover {color:#8a1737; }
     border-radius: 0 5px 5px 0;
 }
 
+.adv-cost {
+    width: 90%;
+    margin-bottom: 5px;
+}
+
 input[type="submit"]:hover {
     background-color: #000000
 }
@@ -204,6 +209,23 @@ input[type="submit"]:hover {
 input.search[type=text], select {
     width: 200px;
 }
+
+/* 'Ensures that text is next to checkbox in advanced search form' */
+
+input[type="checkbox"] {
+    display: inline;
+    width: auto;
+}
+
+/* 'Puts radio buttons next to each other in add entr[y] form' */
+
+input[type="radio"] {
+    height: 0;
+    width: auto;
+    display: inline;
+}
+
+/* 'Controls height of options in dropdown menus */
 
 select {
     height: 40px;
@@ -217,6 +239,8 @@ input {
     box-sizing: border-box;
 }
 
+/* 'Submit button for free, no [In-App Purchases]' */
+
 .free {
     width: 247px;
     border-radius: 5px;
@@ -229,6 +253,8 @@ input {
     border: solid 1px #4f570b;
     padding: 5px;
 }
+
+/* 'Submit button for advanced seach [and] entry form' */
 
 .advanced-button {
     margin: auto;
@@ -248,4 +274,11 @@ input {
     margin: auto;
     margin-right: 10px;
     margin-left: 10px;
+}
+
+/* 'Extra Add Entry Styling */
+
+.add-entry {
+    max-width: 550px;
+    margin: auto;
 }

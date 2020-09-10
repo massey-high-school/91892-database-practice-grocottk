@@ -1,6 +1,6 @@
         <div class="box side">
            
-           <h2>Add an App | <a class="side" href="showall.php">Show All</a></h2>
+           <h2><a href="addentry.php">Add an App</a> | <a class="side" href="showall.php">Show All</a></h2>
            
             <form class="searchform" method="post" action="name_dev.php" enctype="multipart/form-data">
 
@@ -74,7 +74,7 @@ ORDER BY `L2_91892_genre_practice`.`Genre` ASC";
                 
                 <div>
                     
-                    <input class="adv" type="text" name="cost" size="40" value="" placeholder="Dollars..."/>
+                    <input class="adv-cost" type="text" name="cost" size="40" value="" placeholder="Dollars..."/>
                 
                 </div> <!-- End of Cost Input Box -->
                 

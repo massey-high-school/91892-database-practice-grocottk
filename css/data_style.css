@@ -278,7 +278,7 @@ input {
 
 /* 'Extra Add Entry Styling */
 
-.add-entry {
-    max-width: 550px;
+.add-field {
+    width: 550px;
     margin: auto;
 }

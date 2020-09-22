@@ -2,7 +2,7 @@
 
 // 'Get Genre list from Database':
 
-$genre_sql="SELECT * FROM `genre` ORDER BY `genre`.`Genre` ASC ";
+$genre_sql="SELECT * FROM `L2_91892_genre_practice` ORDER BY `L2_91892_genre_practice`.`Genre` ASC ";
 $genre_query=mysqli_query($dbconnect, $genre_sql);
 $genre_rs=mysqli_fetch_assoc($genre_query);
 
@@ -17,7 +17,7 @@ $age = "";
 $rating = "";
 $rate_count = "";
 $cost = "";
-$inapp = 1;
+$in_app = 1;
 $description = "";
 
 $has_errors = "no";
@@ -25,6 +25,19 @@ $has_errors = "no";
 // 'Code below executes when the form is submitted...
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    // Get values from form:
+    
+    $app_name = mysqli_real_escape_string($dbconnect, $_POST['app_name']);
+    $subtitle = mysqli_real_escape_string($dbconnect, $_POST['subtitle']);
+    $url = mysqli_real_escape_string($dbconnect, $_POST['url']);
+    $genreID = mysqli_real_escape_string($dbconnect, $_POST['genre']);
+    = mysqli_real_escape_string($dbconnect, $_POST['']);
+    = mysqli_real_escape_string($dbconnect, $_POST['']);
+    = mysqli_real_escape_string($dbconnect, $_POST['']);
+    = mysqli_real_escape_string($dbconnect, $_POST['']);
+
+
     echo "You pushed the button";
 } // 'End of Button Submitted code'
 
@@ -84,8 +97,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     
                 </select>
                     
-                <!-- 'Develper Name' (Required)' -->
-                
+                <!-- 'Devel[o]per Name' (Required)' -->
+                    
                 <div>
                     
                     <input class="add-field <?php echo $dev_field?>" type="text" name="developer_name" value="<?php echo $dev_name; ?>" size="40" placeholder="Developer Name (Required)..."/>

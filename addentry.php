@@ -31,14 +31,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $app_name = mysqli_real_escape_string($dbconnect, $_POST['app_name']);
     $subtitle = mysqli_real_escape_string($dbconnect, $_POST['subtitle']);
     $url = mysqli_real_escape_string($dbconnect, $_POST['url']);
+    
     $genreID = mysqli_real_escape_string($dbconnect, $_POST['genre']);
-    = mysqli_real_escape_string($dbconnect, $_POST['']);
-    = mysqli_real_escape_string($dbconnect, $_POST['']);
-    = mysqli_real_escape_string($dbconnect, $_POST['']);
-    = mysqli_real_escape_string($dbconnect, $_POST['']);
-
+    
+    // 'If 'genreID' is not blank, get genre so that genre so that genre box does not lose its value if there are errors'
+    
+    if ($genreID != "") {
+        
+        $genreitem_sql = "SELECT *
+FROM `L2_91892_genre_practice`
+WHERE `Genre_ID` = $genreID";
+        $genreitem_query = mysqli_query($dbconnect, $genreitem_sql);
+        $genreitem_rs = mysqli_fetch_assoc($genreitem_query);
+        
+        $genre = $genreitem_rs['Genre'];
+        
+    } // 'End [of the] 'genreID' If [statment]
+    
+    
+    
+    
+    
+    $dev_name = mysqli_real_escape_string($dbconnect, $_POST['developer_name']);
+    $age = mysqli_real_escape_string($dbconnect, $_POST['age']);
+    $rating = mysqli_real_escape_string($dbconnect, $_POST['rating']);
+    $rate_count = mysqli_real_escape_string($dbconnect, $_POST['count']);
+    $cost = mysqli_real_escape_string($dbconnect, $_POST['price']);
+    $in_app = mysqli_real_escape_string($dbconnect, $_POST['in_app']);
+    $description = mysqli_real_escape_string($dbconnect, $_POST['description']);
 
     echo "You pushed the button";
+    
 } // 'End of Button Submitted code'
 
 ?>
@@ -77,7 +100,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     
                     <!-- 'First [and] Selected option' -->
                     
+                    <?php
+                    
+                    if ($genreID=="") {
+                        
+                        ?>
+                    
                     <option value="" selected>Genre ('Choose [an option]')...</option>
+                    
+                    <?php
+                        
+                    }
+                    
+                    else {
+                        
+                        ?>
+                    
+                    <option value="<?php echo $genreID ?>" selected><?php echo $genre; ?></option>
+                    
+                    <?php
+                        
+                    }
+                    
+                    ?>
                     
                     <!-- 'Get options from Database -->
                     

@@ -48,10 +48,6 @@ WHERE `Genre_ID` = $genreID";
         
     } // 'End [of the] 'genreID' If [statment]
     
-    
-    
-    
-    
     $dev_name = mysqli_real_escape_string($dbconnect, $_POST['developer_name']);
     $age = mysqli_real_escape_string($dbconnect, $_POST['age']);
     $rating = mysqli_real_escape_string($dbconnect, $_POST['rating']);
@@ -59,6 +55,18 @@ WHERE `Genre_ID` = $genreID";
     $cost = mysqli_real_escape_string($dbconnect, $_POST['price']);
     $in_app = mysqli_real_escape_string($dbconnect, $_POST['in_app']);
     $description = mysqli_real_escape_string($dbconnect, $_POST['description']);
+    
+    // Error Checking...
+    
+    // If no errors are present...
+    
+    // Transfer to success page...
+    
+    // 'Get' Developer ID if 'it' exists...
+    
+    // If Developer not already in Developer Table, add them and get the 'new' Developer ID...
+    
+    // Add Entry to Database...
 
     echo "You pushed the button";
     
@@ -188,16 +196,44 @@ WHERE `Genre_ID` = $genreID";
                     
                 <div>
                     
-                    <b>'[Does this app contain] In-App Purchase[s?] </b>
+                    <b>'[Does this app contain] In-App Purchase[s?]': </b>
 
                     <!-- '[Default answer is set to 'yes']' -->
 
                     <!-- 'Note: 'Value' in [this] Database is Boolean, so 'no' becomes '0' and 'yes' becomes '1'' -->
-
+                    
+                    <?php
+                    
+                    if($in_app==1) {
+                        
+                        // 'Default value, 'Yes' is selected'
+                        
+                        ?>
+                        
                     <input type="radio" name="in_app" value="1" checked="checked" />Yes
 
                     <input type="radio" name="in_app" value="0" />No
                     
+                    <?php
+                    
+                    } // End of 'yes in_app' 'If' Statement
+                    
+                    else {
+                        
+                        ?>
+                    
+                    <input type="radio" name="in_app" value="1" />Yes
+                    
+                    <input type="radio" name="in_app" value="0" checked="checked" />No
+                    
+                    <?php
+                        
+                    } // End of 'in_app' 'Else' Statement
+                    
+                    ?>
+                    
+
+
                 </div>
 
                 <br />

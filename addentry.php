@@ -60,13 +60,50 @@ WHERE `Genre_ID` = $genreID";
     
     // If no errors are present...
     
+    if ($has_errors == "no") {
+    
     // Transfer to success page...
     
     // 'Get' Developer ID if 'it' exists...
+        
+        $dev_sql = "SELECT *
+FROM `L2_91892_developer_practice`
+WHERE `Developer` LIKE '$dev_name'";
+        $dev_query = mysqli_query($dbconnect, $dev_sql);
+        $dev_rs = mysqli_fetch_assoc($dev_query);
+        $dev_count = mysqli_num_rows($dev_query);
     
     // If Developer not already in Developer Table, add them and get the 'new' Developer ID...
+        
+        if ($dev_count > 0) {
+            $developerID = $dev_rs['Developer_ID'];
+        }
+        
+        else {
+        $add_dev_sql = "INSERT INTO `grocottk70790`.`L2_91892_developer_practice` (
+`Developer_ID` ,
+`Developer`
+)
+VALUES (
+NULL , '$dev_name'
+);";
+        $add_dev_query = mysqli_query($dbconnect, $add_dev_sql);
+            
+        // Get developer ID
+            
+        $newdev_sql = "SELECT *
+FROM `L2_91892_developer_practice`
+WHERE `Developer` LIKE '$dev_name'";
+        $newdev_query = mysqli_query($dbconnect, $newdev_sql);
+        $newdev_rs = mysqli_fetch_assoc($newdev_query);
+            
+        $developerID = $newdev_rs['Developer_ID'];
+            
+        } // End of Adding developer to developer table
     
     // Add Entry to Database...
+        
+    } // End of 'no errors' if statement
 
     echo "You pushed the button";
     

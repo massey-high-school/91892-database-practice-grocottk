@@ -63,6 +63,8 @@ WHERE `Genre_ID` = $genreID";
     if ($has_errors == "no") {
     
     // Transfer to success page...
+        
+    header('Location: add_success.php');
     
     // 'Get' Developer ID if 'it' exists...
         
@@ -102,6 +104,9 @@ WHERE `Developer` LIKE '$dev_name'";
         } // End of Adding developer to developer table
     
     // Add Entry to Database...
+    
+    $addentry_sql = "INSERT INTO `grocottk70790`.`L2_91892_game_practice` (`ID`, `Name`, `Subtitle`, `Description`, `Age Rating`, `URL`, `Price`, `Developer_ID`, `Genre_ID`, `Average User Rating`, `User Rating Count`, `Purchases?`) VALUES (NULL, '$app_name', '$subtitle', '$description', '$age', '$url', '$cost', '$developerID', '$genreID', '$rating', '$rate_count', '$in_app');";
+    $addentry_query = mysqli_query($dbconnect,$addentry_sql);
         
     } // End of 'no errors' if statement
 

@@ -22,6 +22,12 @@ $description = "";
 
 $has_errors = "no";
 
+// Set up error field colours / visibility (no errors at first)
+
+$app_error = $description_error = $url_error = $dev_error = $genre_error = "no-error";
+    
+$app_field = $description_field = $url_field = $dev_field = $genre_field = "form-ok";
+
 // 'Code below executes when the form is submitted...
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -56,7 +62,47 @@ WHERE `Genre_ID` = $genreID";
     $in_app = mysqli_real_escape_string($dbconnect, $_POST['in_app']);
     $description = mysqli_real_escape_string($dbconnect, $_POST['description']);
     
-    // Error Checking...
+    // ****** Error Checking... ******
+    
+    // Check App Name is not blank...
+    
+    if ($app_name == "") {
+        $has_errors = "yes";
+        $app_error = "error-text";
+        $app_field = "form-error";
+    }
+    
+    // Check URL is not blank...
+    
+    if ($url == "") {
+        $has_errors = "yes";
+        $url_error = "error-text";
+        $url_field = "form-error";
+    }
+    
+    // Check Genre is not blank...
+    
+    if ($genreID == "") {
+        $has_errors = "yes";
+        $genre_error = "error-text";
+        $genre_field = "form-error";
+    }
+    
+    // Check Developer is not blank...
+    
+    if ($dev_name == "") {
+        $has_errors = "yes";
+        $dev_error = "error-text";
+        $dev_field = "form-error";
+    }
+    
+    // Check Description is not blank...
+    
+    if ($description == "") {
+        $has_errors = "yes";
+        $description_error = "error-text";
+        $description_field = "form-error";
+    }
     
     // If no errors are present...
     
@@ -103,14 +149,26 @@ WHERE `Developer` LIKE '$dev_name'";
             
         } // End of Adding developer to developer table
     
+        
+        
     // Add Entry to Database...
     
     $addentry_sql = "INSERT INTO `grocottk70790`.`L2_91892_game_practice` (`ID`, `Name`, `Subtitle`, `Description`, `Age Rating`, `URL`, `Price`, `Developer_ID`, `Genre_ID`, `Average User Rating`, `User Rating Count`, `Purchases?`) VALUES (NULL, '$app_name', '$subtitle', '$description', '$age', '$url', '$cost', '$developerID', '$genreID', '$rating', '$rate_count', '$in_app');";
     $addentry_query = mysqli_query($dbconnect,$addentry_sql);
         
+    // Get ID for next page
+        
+    $getid_sql = "SELECT *
+FROM `L2_91892_game_practice`
+WHERE `Name` LIKE '$app_name'
+ORDER BY `L2_91892_game_practice`.`ID` DESC";
+    $getid_query=mysqli_query($dbconnect, $getid_sql);
+    $getid_rs=mysqli_fetch_assoc($getid_query);
+        
+    $ID = $getid_rs['ID'];
+    $_SESSION['ID']=$ID;
+    
     } // End of 'no errors' if statement
-
-    echo "You pushed the button";
     
 } // 'End of Button Submitted code'
 
@@ -126,7 +184,13 @@ WHERE `Developer` LIKE '$dev_name'";
                     
                 <!-- 'App Name (Required)' -->
                     
-                <input class="add-field" type="text" name="app_name" value="<?php echo $app_name; ?>" placeholder="App Name and/or Title (Required)..."/>
+                <div class="<?php echo $app_error; ?>">
+                    
+                     Please fill in the 'App Name' field     
+                    
+                </div>
+                    
+                <input class="add-field <?php echo $app_field; ?>" type="text" name="app_name" value="<?php echo $app_name; ?>" placeholder="App Name and/or Title (Required)..."/>
                     
                 <!-- 'Subtitle (Optional)' -->
                     
@@ -138,6 +202,12 @@ WHERE `Developer` LIKE '$dev_name'";
                     
                 <!-- 'URL (Required, Must start [with] http://)' -->
                     
+                <div class="<?php echo $url_error; ?>">
+                    
+                     Please fill in the 'URL' field
+                    
+                </div>
+                    
                 <div>
                     
                     <input class="add-field <?php echo $url_field; ?>" type="text" name="url" size="40" value="<?php echo $url; ?>" placeholder="URL (Required)..."/>
@@ -146,7 +216,13 @@ WHERE `Developer` LIKE '$dev_name'";
                     
                 <!-- 'Genre Dropdown (Required)' -->
                     
-                <select class="adv" name="genre">
+                <div class="<?php echo $genre_error; ?>">
+                    
+                     Please fill in the 'Genre' field
+                    
+                </div>
+                    
+                <select class="adv <?php echo $genre_field; ?>" name="genre">
                     
                     <!-- 'First [and] Selected option' -->
                     
@@ -194,9 +270,15 @@ WHERE `Developer` LIKE '$dev_name'";
                     
                 <!-- 'Devel[o]per Name' (Required)' -->
                     
+                <div class="<?php echo $dev_error; ?>">
+                    
+                     Please fill in the 'Developer' field
+                    
+                </div>
+                    
                 <div>
                     
-                    <input class="add-field <?php echo $dev_field?>" type="text" name="developer_name" value="<?php echo $dev_name; ?>" size="40" placeholder="Developer Name (Required)..."/>
+                    <input class="add-field <?php echo $dev_field; ?>" type="text" name="developer_name" value="<?php echo $dev_name; ?>" size="40" placeholder="Developer Name (Required)..."/>
    
                 </div>
                     
@@ -282,9 +364,15 @@ WHERE `Developer` LIKE '$dev_name'";
                     
                 <!-- 'Description text area' -->
                                     
+                <div class="<?php echo $description_error; ?>">
+                    
+                     Please fill in the 'Description' field     
+                    
+                </div>
+                    
                 <div>
                     
-                    <textarea class="add-field <?php echo $description_field ?>" name="description" placeholder="Description..." rows="6"><?php echo $description; ?></textarea>
+                    <textarea class="add-field <?php echo $description_field; ?>" name="description" placeholder="Description..." rows="6"><?php echo $description; ?></textarea>
                     
                 </div>
                     

@@ -18,7 +18,7 @@ $rating = "";
 $rate_count = "";
 $cost = "";
 $in_app = 1;
-$description = "";
+$description = "Please enter a description";
 
 $has_errors = "no";
 
@@ -72,9 +72,13 @@ WHERE `Genre_ID` = $genreID";
         $app_field = "form-error";
     }
     
-    // Check URL is not blank...
+    // Check URL is valid...
     
-    if ($url == "") {
+    // Remove all illegal characters from a URL
+    
+    $url = filter_var($url, FILTER_SANITIZE_URL);
+    
+    if (filter_var($url, FILTER_VALIDATE_URL) == false) {
         $has_errors = "yes";
         $url_error = "error-text";
         $url_field = "form-error";
@@ -97,11 +101,13 @@ WHERE `Genre_ID` = $genreID";
     }
     
     // Check Description is not blank...
+    // 'Description Required'
     
-    if ($description == "") {
+    if ($description == "" || $description == "Please enter a description") {
         $has_errors = "yes";
         $description_error = "error-text";
         $description_field = "form-error";
+        $description = "";
     }
     
     // If no errors are present...
@@ -204,7 +210,7 @@ ORDER BY `L2_91892_game_practice`.`ID` DESC";
                     
                 <div class="<?php echo $url_error; ?>">
                     
-                     Please fill in the 'URL' field
+                     Please provide a valid URL
                     
                 </div>
                     
@@ -366,7 +372,7 @@ ORDER BY `L2_91892_game_practice`.`ID` DESC";
                                     
                 <div class="<?php echo $description_error; ?>">
                     
-                     Please fill in the 'Description' field     
+                     Please enter a valid Description
                     
                 </div>
                     

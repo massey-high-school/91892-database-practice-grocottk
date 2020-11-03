@@ -24,9 +24,9 @@ $has_errors = "no";
 
 // Set up error field colours / visibility (no errors at first)
 
-$app_error = $description_error = $url_error = $dev_error = $genre_error = "no-error";
+$app_error = $description_error = $url_error = $dev_error = $genre_error = $age_error = $rating_error = $count_error = "no-error";
     
-$app_field = $description_field = $url_field = $dev_field = $genre_field = "form-ok";
+$app_field = $description_field = $url_field = $dev_field = $genre_field = $age_field = $rating_field = $count_field = "form-ok";
 
 // 'Code below executes when the form is submitted...
 
@@ -108,6 +108,22 @@ WHERE `Genre_ID` = $genreID";
         $description_error = "error-text";
         $description_field = "form-error";
         $description = "";
+    }
+    
+    // Check Rating is a decimal between 0 and 5
+    
+    if (!is_numeric($rating) || $rating < 0 || $rating > 5) {
+        $has_errors = "yes";
+        $rating_error = "error-text";
+        $rating_field = "form-error";
+    }
+    
+    // Check (Rating) Count is an integer that is more than 0
+    
+    if (!ctype_digit($rate_count) || $rate_count < 1) {
+        $has_errors = "yes";
+        $count_error = "error-text";
+        $count_field = "form-error";
     }
     
     // If no errors are present...
@@ -196,13 +212,13 @@ ORDER BY `L2_91892_game_practice`.`ID` DESC";
                     
                 </div>
                     
-                <input class="add-field <?php echo $app_field; ?>" type="text" name="app_name" value="<?php echo $app_name; ?>" placeholder="App Name and/or Title (Required)..."/>
+                <input class="add-field <?php echo $app_field; ?>" type="text" name="app_name" value="<?php echo $app_name; ?>" placeholder="App Name [Required]"/>
                     
                 <!-- 'Subtitle (Optional)' -->
                     
                 <div>
                     
-                    <input class="add-field" type="text" name="subtitle" size="40" value="<?php echo $subtitle; ?>" placeholder="Subtitle..."/>
+                    <input class="add-field" type="text" name="subtitle" size="40" value="<?php echo $subtitle; ?>" placeholder="Subtitle [Optional]"/>
                     
                 </div>
                     
@@ -216,7 +232,7 @@ ORDER BY `L2_91892_game_practice`.`ID` DESC";
                     
                 <div>
                     
-                    <input class="add-field <?php echo $url_field; ?>" type="text" name="url" size="40" value="<?php echo $url; ?>" placeholder="URL (Required)..."/>
+                    <input class="add-field <?php echo $url_field; ?>" type="text" name="url" size="40" value="<?php echo $url; ?>" placeholder="URL [Required]"/>
    
                 </div>
                     
@@ -238,7 +254,7 @@ ORDER BY `L2_91892_game_practice`.`ID` DESC";
                         
                         ?>
                     
-                    <option value="" selected>Genre ('Choose [an option]')...</option>
+                    <option value="" selected>Genre (Choose an option) [Required]</option>
                     
                     <?php
                         
@@ -278,13 +294,13 @@ ORDER BY `L2_91892_game_practice`.`ID` DESC";
                     
                 <div class="<?php echo $dev_error; ?>">
                     
-                     Please fill in the 'Developer' field
+                     Please fill in the 'Developer Name' field
                     
                 </div>
                     
                 <div>
                     
-                    <input class="add-field <?php echo $dev_field; ?>" type="text" name="developer_name" value="<?php echo $dev_name; ?>" size="40" placeholder="Developer Name (Required)..."/>
+                    <input class="add-field <?php echo $dev_field; ?>" type="text" name="developer_name" value="<?php echo $dev_name; ?>" size="40" placeholder="Developer Name [Required]"/>
    
                 </div>
                     
@@ -292,23 +308,35 @@ ORDER BY `L2_91892_game_practice`.`ID` DESC";
                     
                 <div>
                     
-                    <input class="add-field" type="text" name="age" value="<?php echo $age; ?>" placeholder="Age ('0 for all')..."/>
+                    <input class="add-field" type="text" name="age" value="<?php echo $age; ?>" placeholder="Age [Optional]"/>
    
                 </div>
                     
                 <!-- 'Rating (Number between 0 - 5, 1 dp)' -->
                     
+                <div class="<?php echo $rating_error; ?>">
+                    
+                     Please fill in the 'Rating' field     
+                    
+                </div>
+                    
                 <div>
                     
-                    <input class="add-field" type="text" name="rating" value="<?php echo $rating; ?>" step="0.1" min=0 max=5 placeholder="Rating (0-5) [Required]..."/>
+                    <input class="add-field <?php echo $rating_field; ?>" type="text" name="rating" value="<?php echo $rating; ?>" step="0.1" min=0 max=5 placeholder="Rating (0-5) [Required]"/>
    
                 </div>
                     
                 <!-- '[Number] of Ratings (Integer more than 0)' -->
                     
+                <div class="<?php echo $count_error; ?>">
+                    
+                     Please fill in the 'Rating Count' field
+                    
+                </div>
+                    
                 <div>
                     
-                    <input class="add-field" type="text" name="count" value="<?php echo $rate_count; ?>" placeholder="Number of Ratings..."/>
+                    <input class="add-field <?php echo $count_field; ?>" type="text" name="count" value="<?php echo $rate_count; ?>" placeholder="Number of Ratings [Required]"/>
    
                 </div>
                     
@@ -316,55 +344,22 @@ ORDER BY `L2_91892_game_practice`.`ID` DESC";
                     
                 <div>
                     
-                    <input class="add-field" type="text" name="price" value="<?php echo $cost; ?>" placeholder="Cost ('[With] number only')..."/>
+                    <input class="add-field" type="text" name="price" value="<?php echo $cost; ?>" placeholder="Cost (Number Only) [Optional]"/>
    
                 </div>
                     
                 <br />
                     
-                <!-- 'In-App Purchase radio buttons' -->
+                <!-- In-App Purchase Toggle -->
                     
                 <div>
-                    
-                    <b>'[Does this app contain] In-App Purchase[s?]': </b>
-
-                    <!-- '[Default answer is set to 'yes']' -->
-
-                    <!-- 'Note: 'Value' in [this] Database is Boolean, so 'no' becomes '0' and 'yes' becomes '1'' -->
-                    
-                    <?php
-                    
-                    if($in_app==1) {
-                        
-                        // 'Default value, 'Yes' is selected'
-                        
-                        ?>
-                        
-                    <input type="radio" name="in_app" value="1" checked="checked" />Yes
-
-                    <input type="radio" name="in_app" value="0" />No
-                    
-                    <?php
-                    
-                    } // End of 'yes in_app' 'If' Statement
-                    
-                    else {
-                        
-                        ?>
-                    
-                    <input type="radio" name="in_app" value="1" />Yes
-                    
-                    <input type="radio" name="in_app" value="0" checked="checked" />No
-                    
-                    <?php
-                        
-                    } // End of 'in_app' 'Else' Statement
-                    
-                    ?>
-                    
-
-
+                
+                <input type="hidden" name="in_app" value="1" />
+                <input class="add-field" type="checkbox" name="in_app" value="0">No In-App Purchases [Optional]
+                
                 </div>
+                    
+                <!-- End of In-App Purchase Toggle -->
 
                 <br />
                     
@@ -378,7 +373,7 @@ ORDER BY `L2_91892_game_practice`.`ID` DESC";
                     
                 <div>
                     
-                    <textarea class="add-field <?php echo $description_field; ?>" name="description" placeholder="Description..." rows="6"><?php echo $description; ?></textarea>
+                    <textarea class="add-field <?php echo $description_field; ?>" name="description" placeholder="Description [Required]" rows="6"><?php echo $description; ?></textarea>
                     
                 </div>
                     
